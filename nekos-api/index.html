@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nekos Random Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="container header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">ฅ^•ﻌ•^ฅ</div>
+        <div>
+          <h1>Nekos Random Viewer</h1>
+          <p class="muted">Fetch random anime images from Nekos API.</p>
+        </div>
+      </div>
+      <button id="darkmodeBtn" class="btn-icon" aria-label="Toggle darkmode" title="Toggle darkmode">
+        <span aria-hidden="true">🌙</span>
+      </button>
+    </header>
+
+    <main class="container grid">
+      <section class="card controls">
+        <div class="row">
+          <label for="category">Category</label>
+          <div class="dropdown-wrapper">
+            <select id="category" aria-label="Select category">
+              <option value="neko">🐱 neko</option>
+              <option value="waifu">✨ waifu</option>
+              <option value="kitsune">🦊 kitsune</option>
+              <option value="hug">🤗 hug</option>
+              <option value="pat">👋 pat</option>
+            </select>
+            <span class="dropdown-icon" aria-hidden="true">▼</span>
+          </div>
+        </div>
+
+        <div class="row row-inline">
+          <button id="btnFetch" class="btn primary">Fetch Random</button>
+
+          <label class="toggle" title="Automatically fetch every few seconds">
+            <input id="autoToggle" type="checkbox" />
+            <span class="pill" aria-hidden="true"></span>
+            <span class="toggleText">Auto Random</span>
+          </label>
+
+          <select id="autoEvery" class="smallSelect" aria-label="Auto interval">
+            <option value="3">Every 3s</option>
+            <option value="5" selected>Every 5s</option>
+            <option value="10">Every 10s</option>
+          </select>
+        </div>
+
+        <div id="status" class="status muted" role="status" aria-live="polite"></div>
+
+        <div class="row row-inline">
+          <button id="btnCopy" class="btn ghost" disabled>Copy Image URL</button>
+          <a
+            id="btnOpen"
+            class="btn ghost link"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+            aria-disabled="true"
+          >
+            Open Image
+          </a>
+        </div>
+
+        <div class="hint muted">
+          Tip: Host on GitHub Pages (Settings → Pages) and it works instantly.
+        </div>
+      </section>
+
+      <section class="card viewer">
+        <div class="imgWrap">
+          <img id="resultImg" alt="Result from Nekos API" />
+          <div id="placeholder" class="placeholder">
+            Click <b>Fetch Random</b> to load an image.
+          </div>
+
+          <div id="badge" class="badge" hidden>category</div>
+        </div>
+
+        <div class="meta">
+          <div class="metaLabel muted">Image URL</div>
+          <code id="imgUrl" class="code">—</code>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer muted">
+      Built with HTML/CSS/JS • Random category each fetch
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
